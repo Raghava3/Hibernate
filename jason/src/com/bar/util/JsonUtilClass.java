@@ -1,8 +1,8 @@
 package com.bar.util;
 
-import java.io.FileNotFoundException;
+
 import java.io.FileReader;
-import java.util.Iterator;
+
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -21,14 +21,24 @@ public class JsonUtilClass
 			Jsonmembers js=new Jsonmembers();
 			Dataaccessobject ds=new Dataaccessobject();
 			JSONObject jo=(JSONObject)obj;
-			JSONArray ja=(JSONArray)jo.get("member");
+			//this is the jason file
+/*			{"member":[{"mail":"1raghuram3@gmail.com","name":"raghava","city":"Banglore",
+ *           "country":"india","phoneno":"9980222222"},
+ *           {"mail":"raghuram@gmail.com","name":"raghava","city":"Banglore","country":"india","phoneno":"9980222222"}]}
+*/			//getting the value by passing the key member
 			
+			
+			JSONArray ja=(JSONArray)jo.get("member");
+			//getting the size of the json array 
 			for(int j=0 ; j<ja.size();j++)
 			{
+				//creating  json object
 				JSONObject details=(JSONObject) ja.get(j);
-				
+				//getting the  value of the mail by passing key
 				Object mailObj=details.get("mail");
+				//converting into the string 
 				String mail= (String)mailObj;
+				//setting the value of the mail
 				js.setMail(mail);
 				
 				
