@@ -10,14 +10,13 @@ import javax.persistence.Table;
 @Table (name="studet_info")
 public class Studentdata implements  Serializable
 {
-	
+
+	@Id
 	String email;
 	
-	@GeneratedValue
-	int gen;
-	@Id
 	String name;
     String address;
+   
 	public String getEmail() {
 		return email;
 	}
