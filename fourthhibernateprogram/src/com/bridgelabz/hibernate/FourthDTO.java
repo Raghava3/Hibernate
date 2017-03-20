@@ -13,8 +13,8 @@ public class FourthDTO implements Serializable
 	
 	 
 		
-	     @Id
-	     @Column(name="p_name")
+	    @Id
+	    @Column(name="p_name")
 		private String p_name;
 		@Column(name="p_id")
 	     private int P_id;

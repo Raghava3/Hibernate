@@ -1,9 +1,5 @@
 package com.bridgelabz.hibernate;
 
-
-
-
-
 public class FourthUtil 
 {
 	
