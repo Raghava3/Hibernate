@@ -9,12 +9,12 @@ public class StudentUtil {
 	
 		Studentdata st=new Studentdata();
 		st.setName("raghava");
-		st.setEmail("ragahaaa@gmail.com");
+		st.setEmail("rq@gmail.com");
 		st.setAddress("s1");
 		StudentDao st1=new StudentDao();
 		st1.add(st);
-		st1.listEmployees();
-		st1.updateEmployee("ragahaaa@gmail.com", "salary");
+	st1.listEmployees();
+	//	st1.updateEmployee("ragahaaa@gmail.com", "salary");
 	}
 	
 

@@ -21,7 +21,7 @@ public class StudentDao {
 	    SessionFactory factory=cfg.buildSessionFactory();
 	    Session session =factory.openSession();
 		Transaction tx=session.beginTransaction();
-    	session.save(st);
+    	session.persist(st);
 	    tx.commit();
 	}
 	
@@ -36,9 +36,12 @@ public class StudentDao {
 	      Transaction tx = null;
 	      try{
 	         tx = session.beginTransaction();
-	         List employees = session.createQuery("FROM Studentdata").list(); 
+	         //creating the query on student data and adding to list 
+ 	         List employees = session.createQuery("from Studentdata").list();
+ 	         //using the for loop i am checking for next element exist or not 
 	         for (Iterator iterator = employees.iterator(); iterator.hasNext();)
 	         {
+	        	 //getting the element and printing 
 	            Studentdata employee = (Studentdata) iterator.next(); 
 	            System.out.print("address: " + employee.getAddress()); 
 	            System.out.print("email: " + employee.getEmail()); 
@@ -50,10 +53,11 @@ public class StudentDao {
 	         e.printStackTrace(); 
 	      }finally {
 	         session.close(); 
+	         factory.close();
 	      }
 	   }
 	   /* Method to UPDATE salary for an employee */
-	   public void updateEmployee(String  email, String salary ){
+	  /* public void updateEmployee(String  email, String salary ){
 		   Configuration cfg=new Configuration();
 			cfg.configure();
 		    SessionFactory factory=cfg.buildSessionFactory();
@@ -63,7 +67,7 @@ public class StudentDao {
 	      try{
 	         tx = session.beginTransaction();
 	         Studentdata employee = 
-	                    (Studentdata)session.get(Studentdata.class, email); 
+	          (Studentdata)session.get(Studentdata.class, email); 
 	         employee.setName(salary);
 			 session.update(employee); 
 	         tx.commit();
@@ -72,6 +76,6 @@ public class StudentDao {
 	         e.printStackTrace(); 
 	      }finally {
 	         session.close(); 
-	      }
-	   }
+	      }*/
+	 //  }
 }
