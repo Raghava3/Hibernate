@@ -1,7 +1,11 @@
 package com.Bridgelabz;
 
+import java.util.Arrays;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+
+import javax.persistence.Query;
 
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -51,8 +55,7 @@ public class CRUDDAO {
 	   
 	 
 	}
-	
-	
+
 public void list( )
 {
 		
@@ -85,7 +88,6 @@ public void list( )
 	      }
 	   }
 
-	
 	public void delete(String pk)
 	{
 		Session session=new Configuration().configure().buildSessionFactory().openSession();
@@ -94,5 +96,30 @@ public void list( )
      	tx.commit();
 		
 	}
-
+	
+	public void select()
+	{
+		Session session=new Configuration().configure().buildSessionFactory().openSession();
+		Transaction tx=session.beginTransaction();
+		String hql="select d from CRUDDTO d where p_name='ra'";
+		org.hibernate.Query query=session.createQuery(hql);
+		List<CRUDDTO> result=query.list();
+		System.out.println(result);
+		
+		for (Iterator iterator = result.iterator(); iterator.hasNext();)
+        {
+       	 //getting the element and printing 
+       	 CRUDDTO a = (CRUDDTO) iterator.next();
+       	System.out.println("id "+a.getP_id());
+       	System.out.println("email"+a.getP_email());
+       	System.out.println("name"+a.getP_name());
+      
+		
+	}
+	
+		   }
 }
+	
+	
+
+
